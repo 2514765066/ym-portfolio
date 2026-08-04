@@ -1,0 +1,7 @@
+.agents
+.vscode
+dist
+node_modules
+public
+*.min.js
+*.map
