@@ -1,7 +1,9 @@
 .agents
+.codegraph
+.next
 .vscode
+out
 dist
 node_modules
-public
 *.min.js
 *.map
