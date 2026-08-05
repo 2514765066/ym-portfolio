@@ -14,7 +14,7 @@ type CategoryProps = {
 // 展示并切换文章分类
 export const Category = ({ selectedCategory, onSelect }: CategoryProps) => {
   return (
-    <section className='pb-4 flex justify-center gap-3 border-b border-dashed'>
+    <section className='pb-4 flex flex-wrap justify-center gap-3 border-b border-dashed'>
       {categories.map((category) => {
         return (
           <Button

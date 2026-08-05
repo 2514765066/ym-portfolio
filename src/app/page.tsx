@@ -1,4 +1,5 @@
 import { ArticleList } from '@/components/article-list';
+import { Items } from '@/components/items';
 import { PageContainer } from '@/components/page-template';
 import { getArticles } from '@/lib/articles';
 import { homeMap } from '@/map';
@@ -10,6 +11,8 @@ export default async () => {
 
   return (
     <PageContainer {...homeMap}>
+      <Items />
+
       <ArticleList data={articles} />
     </PageContainer>
   );

@@ -1,13 +1,9 @@
-import { PropsWithChildren, ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 import { Button } from '@/components/ui/button';
 import { Article, HomeConfig } from '@/type';
 import { cn } from '@/lib/utils';
 import { hwmcFont } from '@/font';
 import { Card } from '@/components/card';
-
-type PageTemplateProps = HomeConfig & {
-  afterHeader?: ReactNode;
-};
 
 //页面容器
 export const PageContainer = ({
@@ -15,9 +11,8 @@ export const PageContainer = ({
   title,
   description,
   link,
-  afterHeader,
   children,
-}: PropsWithChildren<PageTemplateProps>) => {
+}: PropsWithChildren<HomeConfig>) => {
   return (
     <section className='mx-auto py-24 container flex flex-col gap-8'>
       <header className='flex flex-col items-center gap-4'>
@@ -50,8 +45,6 @@ export const PageContainer = ({
           })}
         </ul>
       </header>
-
-      {afterHeader}
 
       {children}
     </section>
