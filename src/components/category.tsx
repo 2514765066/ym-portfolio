@@ -1,25 +1,32 @@
 'use client';
 
-import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { categoryMap } from '@/map';
+import { CategoryTag, categoryMap } from '@/map';
 
-const category = Object.keys(categoryMap);
+// 可展示的分类标签
+const categories = Object.keys(categoryMap) as CategoryTag[];
 
-export const Category = () => {
-  const selectedCategory = useRef(category[0]);
+type CategoryProps = {
+  selectedCategory: CategoryTag;
+  onSelect: (category: CategoryTag) => void;
+};
 
+// 展示并切换文章分类
+export const Category = ({ selectedCategory, onSelect }: CategoryProps) => {
   return (
     <section className='pb-4 flex justify-center gap-3 border-b border-dashed'>
-      {category.map((c) => {
+      {categories.map((category) => {
         return (
           <Button
             className='min-w-20 rounded-full'
-            variant={selectedCategory.current == c ? 'default' : 'outline'}
+            variant={selectedCategory === category ? 'default' : 'outline'}
             size='lg'
-            key={c}
+            key={category}
+            onClick={() => {
+              onSelect(category);
+            }}
           >
-            {categoryMap[c]}
+            {categoryMap[category]}
           </Button>
         );
       })}

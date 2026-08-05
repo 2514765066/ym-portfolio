@@ -1,8 +1,12 @@
 //分类地图
-export const categoryMap: Record<string, string> = {
+export const categoryMap = {
   all: '全部',
-  template: '模板',
+  article: '文章',
   project: '项目',
   web: '网页',
-  ui: 'UI',
-};
+  resource: '资源',
+  library: '库',
+} as const;
+
+// 可筛选的文章标签
+export type CategoryTag = keyof typeof categoryMap;

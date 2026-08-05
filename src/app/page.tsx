@@ -1,5 +1,5 @@
-import { Category } from '@/components/category';
-import { PageContainer, PageContent } from '@/components/page';
+import { ArticleList } from '@/components/article-list';
+import { PageContainer } from '@/components/page';
 import { homeConfig } from '@/config';
 import { getArticles } from '@/lib/articles';
 
@@ -9,8 +9,8 @@ export default async () => {
   const articles = await getArticles();
 
   return (
-    <PageContainer {...homeConfig} afterHeader={<Category />}>
-      <PageContent data={articles} />
+    <PageContainer {...homeConfig}>
+      <ArticleList data={articles} />
     </PageContainer>
   );
 };
