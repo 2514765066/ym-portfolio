@@ -1,4 +1,4 @@
-import { ArticleContainer } from '@/components/article';
+import { ArticleContainer } from '@/components/article-template';
 import { getArticleById, getArticles } from '@/lib/articles';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';

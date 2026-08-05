@@ -1,5 +1,5 @@
 import { ArticleList } from '@/components/article-list';
-import { PageContainer } from '@/components/page';
+import { PageContainer } from '@/components/page-template';
 import { getArticles } from '@/lib/articles';
 import { homeMap } from '@/map';
 

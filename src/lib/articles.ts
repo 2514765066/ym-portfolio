@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { Article } from '@/type';
 
 // 公开文章目录
-const articleDirectory = path.join(process.cwd(), 'public');
+const articleDirectory = path.join(process.cwd(), 'public', 'article');
 
 // 将 Frontmatter 转换为页面可用的文章信息
 const createArticle = (id: string, data: Record<string, unknown>): Article => {

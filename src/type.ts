@@ -1,10 +1,14 @@
 import type { ComponentType, SVGProps } from 'react';
 
-//首页配置
-export type HomeConfig = {
+// 页面头部展示信息
+export type PageInfo = {
   tag: string;
   title: string;
   description: string;
+};
+
+// 首页配置
+export type HomeConfig = PageInfo & {
   link: {
     label: string;
     icon: ComponentType<SVGProps<SVGSVGElement>>;
@@ -12,7 +16,7 @@ export type HomeConfig = {
   }[];
 };
 
-//文章配置
+// 文章配置
 export type Article = {
   id: string;
   tag: string;

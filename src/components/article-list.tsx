@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Category } from '@/components/category';
-import { PageContent } from '@/components/page';
+import { PageContent } from '@/components/page-template';
 import { CategoryTag } from '@/map';
 import { Article } from '@/type';
 
