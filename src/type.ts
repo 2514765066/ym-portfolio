@@ -1,4 +1,4 @@
-import { LucideIcon } from 'lucide-react';
+import type { ComponentType, SVGProps } from 'react';
 
 //首页配置
 export type HomeConfig = {
@@ -7,7 +7,7 @@ export type HomeConfig = {
   description: string;
   link: {
     label: string;
-    icon: LucideIcon;
+    icon: ComponentType<SVGProps<SVGSVGElement>>;
     href: string;
   }[];
 };

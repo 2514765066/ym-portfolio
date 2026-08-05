@@ -1,7 +1,7 @@
 import { ArticleList } from '@/components/article-list';
 import { PageContainer } from '@/components/page';
-import { homeConfig } from '@/config';
 import { getArticles } from '@/lib/articles';
+import { homeMap } from '@/map';
 
 // 渲染首页静态文章列表
 export default async () => {
@@ -9,7 +9,7 @@ export default async () => {
   const articles = await getArticles();
 
   return (
-    <PageContainer {...homeConfig}>
+    <PageContainer {...homeMap}>
       <ArticleList data={articles} />
     </PageContainer>
   );

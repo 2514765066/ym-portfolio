@@ -42,7 +42,7 @@ export const PageContainer = ({
 
             return (
               <li key={index}>
-                <a href={l.href}>
+                <a href={l.href} target='_blank' rel='noreferrer'>
                   <Icon className='size-5' />
                 </a>
               </li>
