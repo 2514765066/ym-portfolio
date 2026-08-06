@@ -1,6 +1,6 @@
-import { interFont, geist, geistMono } from '@/font';
-import './globals.css';
+import { interFont, geistFont, geistMonoFont, hwmcFont } from '@/font/index';
 import { cn } from '@/lib/utils';
+import '@/style/globals.css';
 
 export default function RootLayout({
   children,
@@ -10,7 +10,12 @@ export default function RootLayout({
   return (
     <html lang='zh-CN'>
       <body
-        className={cn(interFont.className, geist.variable, geistMono.variable)}
+        className={cn(
+          interFont.className,
+          geistFont.variable,
+          geistMonoFont.variable,
+          hwmcFont.variable,
+        )}
       >
         {children}
       </body>

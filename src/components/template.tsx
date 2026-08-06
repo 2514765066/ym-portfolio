@@ -1,4 +1,3 @@
-import { hwmcFont } from '@/font';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { PropsWithChildren, ReactNode } from 'react';
@@ -33,11 +32,7 @@ const Title = ({ content }: ContentProps) => {
     return;
   }
 
-  return (
-    <h1 className={cn(hwmcFont.className, 'text-[64px] text-center')}>
-      {content}
-    </h1>
-  );
+  return <h1 className={'text-[64px] text-center font-hwmc'}>{content}</h1>;
 };
 
 //描述

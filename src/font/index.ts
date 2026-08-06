@@ -10,16 +10,17 @@ export const interFont = Inter({
 
 //汇文明朝体
 export const hwmcFont = fontLocal({
-  src: './font/hwmc.otf',
+  src: './hwmc.otf',
   display: 'swap',
+  variable: '--font-hwmc',
 });
 
-export const geist = Geist({
+export const geistFont = Geist({
   subsets: ['latin'],
   variable: '--font-geist',
 });
 
-export const geistMono = Geist_Mono({
+export const geistMonoFont = Geist_Mono({
   subsets: ['latin'],
   variable: '--font-geist-mono',
 });
