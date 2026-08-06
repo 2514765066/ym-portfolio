@@ -18,7 +18,7 @@ const allOption = {
 };
 
 // 展示并切换文章分类
-export const CategoryList = ({ className, data = [] }: CategoryProps) => {
+export const HeaderCategory = ({ className, data = [] }: CategoryProps) => {
   const { selectedCategory } = useSnapshot(categoryState);
 
   if (data.length == 0) {

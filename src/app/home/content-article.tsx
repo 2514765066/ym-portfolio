@@ -6,12 +6,12 @@ import type { Article } from '@/type';
 import { useSnapshot } from 'valtio';
 import { categoryState } from '@/stores/category';
 
-type ArticleListProps = {
+type Props = {
   data: Article[];
 };
 
 // 管理文章分类筛选与列表展示
-export const ArticleList = ({ data }: ArticleListProps) => {
+export const ContentArticle = ({ data }: Props) => {
   const { selectedCategory } = useSnapshot(categoryState);
 
   // 根据当前分类筛选出的文章

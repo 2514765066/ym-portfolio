@@ -13,13 +13,13 @@ import { ClassNameValue } from 'tailwind-merge';
 import { cn } from '@/lib/utils';
 
 // 首页快捷入口组件入参
-type ItemListProps = {
+type Props = {
   className?: ClassNameValue;
   data?: ItemLink[];
 };
 
 // 展示首页常用内容入口
-export const ItemList = ({ className, data = [] }: ItemListProps) => {
+export const HeaderItem = ({ className, data = [] }: Props) => {
   if (data.length == 0) {
     return;
   }
@@ -32,28 +32,22 @@ export const ItemList = ({ className, data = [] }: ItemListProps) => {
       )}
     >
       {data.map((item, index) => {
-        return <ItemListItem key={index} data={item} />;
+        return <ListItem key={index} data={item} />;
       })}
     </ItemGroup>
   );
 };
 
-type ItemListItemProps = {
+type ListItemProps = {
   data: ItemLink;
 };
 
-const ItemListItem = ({ data }: ItemListItemProps) => {
+const ListItem = ({ data }: ListItemProps) => {
   return (
     <Item
       className='group px-4.5 py-4 md:max-w-75 hover:-translate-y-1 transition-all! duration-300'
       variant='outline'
-      render={
-        <Link
-          href={{
-            pathname: data.href,
-          }}
-        />
-      }
+      render={<Link href={data.href} />}
     >
       <ItemContent className='gap-2'>
         <span className='text-xs tracking-widest text-muted-foreground'>

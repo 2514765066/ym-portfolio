@@ -9,7 +9,7 @@ type CardtProps = {
 };
 
 // 页面内容卡片
-export const Card = ({ data }: CardtProps) => {
+export const ArticleCard = ({ data }: CardtProps) => {
   return (
     <motion.div
       layout
@@ -32,12 +32,7 @@ export const Card = ({ data }: CardtProps) => {
         duration: 400,
       }}
     >
-      <Link
-        className='group w-full flex flex-col'
-        href={{
-          pathname: `/article/${data.id}`,
-        }}
-      >
+      <Link className='group w-full flex flex-col' href={`/article/${data.id}`}>
         <header className='mb-1.5 flex justify-between items-center'>
           <span className='text-xs tracking-widest'>
             - {capitalize(data.tag)} -

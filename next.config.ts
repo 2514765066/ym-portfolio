@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+
+  typedRoutes: false,
 };
 
 export default nextConfig;

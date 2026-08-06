@@ -4,7 +4,7 @@ import { PropsWithChildren, ReactNode } from 'react';
 import { formatDate } from '@/utils/date';
 import { Article, HomeDocument, QuickLink } from '@/type';
 import { ClassNameValue } from 'tailwind-merge';
-import { Card } from './card';
+import { ArticleCard } from './article-card';
 
 type ContentProps = {
   content?: string;
@@ -146,9 +146,9 @@ export const PageContent = ({ data }: PageContentProps) => {
       className='grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8'
       id='articles'
     >
-      {data.map((item) => {
-        return <Card key={item.id} data={item} />;
-      })}
+      {data.map((item) => (
+        <ArticleCard key={item.id} data={item} />
+      ))}
     </section>
   );
 };
