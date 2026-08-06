@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import { Category } from '@/components/category';
-import { PageContent } from '@/components/page-template';
-import { CategoryTag } from '@/map';
-import { Article } from '@/type';
+import { useMemo } from 'react';
+import { PageContent } from '@/components/template';
+import type { Article } from '@/type';
+import { useSnapshot } from 'valtio';
+import { categoryState } from '@/stores/category';
 
 type ArticleListProps = {
   data: Article[];
@@ -12,26 +12,14 @@ type ArticleListProps = {
 
 // 管理文章分类筛选与列表展示
 export const ArticleList = ({ data }: ArticleListProps) => {
-  // 当前选中的文章分类
-  const [selectedCategory, setSelectedCategory] = useState<CategoryTag>('all');
+  const { selectedCategory } = useSnapshot(categoryState);
+
   // 根据当前分类筛选出的文章
-  const filteredArticles = data.filter((article) => {
-    return selectedCategory === 'all' || article.tag === selectedCategory;
-  });
+  const filteredArticles = useMemo(() => {
+    return data.filter((article) => {
+      return selectedCategory === 'all' || article.tag === selectedCategory;
+    });
+  }, [selectedCategory, data]);
 
-  // 处理文章分类切换
-  const handleSelectCategory = (category: CategoryTag) => {
-    setSelectedCategory(category);
-  };
-
-  return (
-    <>
-      <Category
-        selectedCategory={selectedCategory}
-        onSelect={handleSelectCategory}
-      />
-
-      <PageContent data={filteredArticles} />
-    </>
-  );
+  return <PageContent data={filteredArticles} />;
 };

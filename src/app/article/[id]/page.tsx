@@ -1,8 +1,7 @@
-import { ArticleContainer } from '@/components/article-template';
-import { getArticleById, getArticles } from '@/lib/articles';
+import { ArticleContainer } from '@/components/template';
+import { MarkdownContent } from '@/components/markdown-content';
+import { getArticleById, getArticles } from '@/lib/content';
 import { notFound } from 'next/navigation';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 
 type ArticlePageProps = {
   params: Promise<{
@@ -16,7 +15,7 @@ export const generateStaticParams = async () => {
   const articles = await getArticles();
 
   return articles.map((article) => {
-    return { id: article.id };
+    return { id: article.data.id };
   });
 };
 
@@ -33,10 +32,8 @@ export default async ({ params }: ArticlePageProps) => {
   }
 
   return (
-    <ArticleContainer {...article}>
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>
-        {article.content}
-      </ReactMarkdown>
+    <ArticleContainer {...article.data}>
+      <MarkdownContent content={article.content} />
     </ArticleContainer>
   );
 };
