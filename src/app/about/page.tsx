@@ -1,4 +1,4 @@
-import { MarkdownContent } from '@/components/markdown-content';
+import { Markdown } from '@/components/markdown';
 import { PageContainer } from '@/components/template';
 import { getAbout } from '@/lib/content';
 
@@ -9,7 +9,7 @@ export default async () => {
 
   return (
     <PageContainer {...data} className='max-w-3xl'>
-      <MarkdownContent content={content} />
+      <Markdown content={content} />
     </PageContainer>
   );
 };

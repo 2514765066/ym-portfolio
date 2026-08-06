@@ -1,5 +1,5 @@
 import { ArticleContainer } from '@/components/template';
-import { MarkdownContent } from '@/components/markdown-content';
+import { Markdown } from '@/components/markdown';
 import { getArticleById, getArticles } from '@/lib/content';
 import { notFound } from 'next/navigation';
 
@@ -33,7 +33,7 @@ export default async ({ params }: ArticlePageProps) => {
 
   return (
     <ArticleContainer {...article.data}>
-      <MarkdownContent content={article.content} />
+      <Markdown content={article.content} />
     </ArticleContainer>
   );
 };

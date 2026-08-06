@@ -161,7 +161,7 @@ export const ArticleContainer = ({
   children,
 }: PropsWithChildren<Article>) => {
   return (
-    <Container className='max-w-3xl'>
+    <Container className='lg:max-w-xl xl:max-w-3xl'>
       <Header>
         <Tag content={tag} />
 
