@@ -7,7 +7,7 @@ import {
   ItemGroup,
   ItemTitle,
 } from '@/components/ui/item';
-import type { QuickLink } from '@/type';
+import type { ItemLink } from '@/type';
 import Link from 'next/link';
 import { ClassNameValue } from 'tailwind-merge';
 import { cn } from '@/lib/utils';
@@ -15,12 +15,12 @@ import { cn } from '@/lib/utils';
 // 首页快捷入口组件入参
 type ItemListProps = {
   className?: ClassNameValue;
-  data?: QuickLink[];
+  data?: ItemLink[];
 };
 
 // 展示首页常用内容入口
-export const ItemList = ({ className, data }: ItemListProps) => {
-  if (!data || data.length == 0) {
+export const ItemList = ({ className, data = [] }: ItemListProps) => {
+  if (data.length == 0) {
     return;
   }
 
@@ -39,7 +39,7 @@ export const ItemList = ({ className, data }: ItemListProps) => {
 };
 
 type ItemListItemProps = {
-  data: QuickLink;
+  data: ItemLink;
 };
 
 const ItemListItem = ({ data }: ItemListItemProps) => {
@@ -57,7 +57,7 @@ const ItemListItem = ({ data }: ItemListItemProps) => {
     >
       <ItemContent className='gap-2'>
         <span className='text-xs tracking-widest text-muted-foreground'>
-          {data.tag}
+          {data.tag.toUpperCase()}
         </span>
 
         <ItemTitle className='text-base'>{data.title}</ItemTitle>

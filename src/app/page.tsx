@@ -17,9 +17,6 @@ export default async () => {
     return article.data;
   });
 
-  //分类
-  const category = ['all', ...articleData.map((item) => item.tag)];
-
   return (
     <PageContainer
       {...home.data}
@@ -27,7 +24,7 @@ export default async () => {
         <>
           <ItemList className='my-4' data={home.data.items} />
 
-          <CategoryList className='mb-4' data={category} />
+          <CategoryList className='mb-4' data={home.data.categories} />
         </>
       }
     >

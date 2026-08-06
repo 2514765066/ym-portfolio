@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { PropsWithChildren, ReactNode } from 'react';
 import { formatDate } from '@/utils/date';
-import { Article, PageInfo, SocialLink } from '@/type';
+import { Article, HomeDocument, QuickLink } from '@/type';
 import { ClassNameValue } from 'tailwind-merge';
 import { Card } from './card';
 
@@ -54,7 +54,7 @@ const Description = ({ content }: ContentProps) => {
 };
 
 type LinksProps = {
-  data?: SocialLink[];
+  data?: QuickLink[];
 };
 
 //三方跳转
@@ -106,9 +106,8 @@ const Container = ({
 };
 
 // 页面容器入参
-type PageContainerProps = PageInfo & {
+type PageContainerProps = HomeDocument & {
   className?: ClassNameValue;
-  links?: SocialLink[];
   afterHeader?: ReactNode;
 };
 

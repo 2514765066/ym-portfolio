@@ -1,36 +1,39 @@
-// 页面头部展示信息
-export type PageInfo = {
-  tag: string;
-  title: string;
-  description: string;
-};
-
-// 可在内容文件中使用的社交图标名称
-export type SocialIconName = 'github' | 'gitee';
-
 // 页面社交链接配置
-export type SocialLink = {
+export type QuickLink = {
+  icon: string;
   href: string;
-  icon: SocialIconName;
 };
 
 // 首页快捷入口配置
-export type QuickLink = {
+export type ItemLink = {
   tag: string;
   title: string;
   description: string;
   href: string;
 };
 
+//分类列表
+export type Category = {
+  label: string;
+  value: string;
+};
+
 // 首页内容文档
-export type HomeDocument = PageInfo & {
-  links?: SocialLink[];
-  items?: QuickLink[];
+export type HomeDocument = {
+  tag: string;
+  title: string;
+  description: string;
+  links?: QuickLink[];
+  items?: ItemLink[];
+  categories?: Category[];
 };
 
 // 普通页面的 Front matter
-export type PageDocument = PageInfo & {
-  links?: SocialLink[];
+export type PageDocument = {
+  tag: string;
+  title: string;
+  description: string;
+  links?: QuickLink[];
 };
 
 // 文章配置
