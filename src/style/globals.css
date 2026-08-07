@@ -19,3 +19,8 @@
     @apply font-sans;
   }
 }
+
+.hljs {
+  background-color: transparent;
+  color: var(--hljs-foreground);
+}

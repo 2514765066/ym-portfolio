@@ -1,8 +1,14 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { TocItem } from '@/plugins/remark-toc';
 import { useCallback, useEffect, useState } from 'react';
+
+// 单个目录项
+export type TocItem = {
+  id: string;
+  title: string;
+  depth: number;
+};
 
 type MarkdownTocProps = {
   data: TocItem[];
@@ -102,7 +108,7 @@ const MarkdownTocItem = ({
   }, [data, onChange]);
 
   return (
-    <li key={data.id}>
+    <li style={{ paddingLeft: `${data.depth * 16}px` }}>
       <a
         className={cn(
           'block truncate text-sm text-muted-foreground transition-colors hover:text-primary',

@@ -33,7 +33,7 @@ export default async ({ params }: ArticlePageProps) => {
 
   return (
     <ArticleContainer {...article.data}>
-      <Markdown content={article.content} />
+      <Markdown content={article.content} showToc />
     </ArticleContainer>
   );
 };
