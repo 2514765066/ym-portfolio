@@ -1,6 +1,6 @@
 import { Article } from '@/type';
 import { capitalize } from '@/utils/str';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Image } from 'lucide-react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 
@@ -41,11 +41,15 @@ export const ArticleCard = ({ data }: CardtProps) => {
           <span className='text-xs tracking-widest'>(010)</span>
         </header>
 
-        <main className='aspect-3/2 border rounded-md overflow-hidden bg-muted'>
-          <img
-            className='size-full object-cover hover:scale-105 transition-transform duration-400'
-            src={data.img}
-          />
+        <main className='aspect-3/2 flex-center border rounded-md overflow-hidden bg-muted'>
+          {data.img ? (
+            <img
+              className='size-full object-cover hover:scale-105 transition-transform duration-400'
+              src={data.img}
+            />
+          ) : (
+            <Image className='size-10 text-muted-foreground' />
+          )}
         </main>
 
         <footer className='mt-3 flex flex-col gap-1'>
