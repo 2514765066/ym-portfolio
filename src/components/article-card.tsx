@@ -42,10 +42,11 @@ export const ArticleCard = ({ data }: CardtProps) => {
           <span className='text-xs tracking-widest'>(010)</span>
         </header>
 
-        <main className='aspect-3/2 flex-center border rounded-md overflow-hidden bg-muted'>
+        <main className='aspect-3/2 relative flex-center border rounded-md overflow-hidden bg-muted'>
           {data.img ? (
             <Image
-              className='size-full object-cover hover:scale-105 transition-transform duration-400'
+              className='object-cover hover:scale-105 transition-transform duration-400'
+              fill
               src={data.img}
               alt=''
             />

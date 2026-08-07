@@ -65,7 +65,13 @@ const Links = ({ data = [] }: LinksProps) => {
         return (
           <li key={index}>
             <a href={item.href} target='_blank'>
-              <Image className='size-5' src={item.icon} alt='' />
+              <Image
+                width={20}
+                height={20}
+                className='size-5'
+                src={item.icon}
+                alt=''
+              />
             </a>
           </li>
         );
