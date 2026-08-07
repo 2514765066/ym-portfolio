@@ -3,7 +3,7 @@ import { PageContainer } from '@/components/template';
 import { getAbout } from '@/lib/content';
 
 // 渲染关于我页面
-export default async () => {
+export default async function AboutHome() {
   // 关于页的 Markdown 展示信息
   const { data, content } = await getAbout();
 
@@ -12,4 +12,4 @@ export default async () => {
       <Markdown content={content} />
     </PageContainer>
   );
-};
+}

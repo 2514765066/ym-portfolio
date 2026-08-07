@@ -1,7 +1,8 @@
 import { Article } from '@/type';
 import { capitalize } from '@/utils/str';
-import { ArrowRight, Image } from 'lucide-react';
+import { ArrowRight, ImageIcon } from 'lucide-react';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 type CardtProps = {
@@ -43,12 +44,13 @@ export const ArticleCard = ({ data }: CardtProps) => {
 
         <main className='aspect-3/2 flex-center border rounded-md overflow-hidden bg-muted'>
           {data.img ? (
-            <img
+            <Image
               className='size-full object-cover hover:scale-105 transition-transform duration-400'
               src={data.img}
+              alt=''
             />
           ) : (
-            <Image className='size-10 text-muted-foreground' />
+            <ImageIcon className='size-10 text-muted-foreground' />
           )}
         </main>
 

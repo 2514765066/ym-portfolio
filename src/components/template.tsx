@@ -5,6 +5,7 @@ import { formatDate } from '@/utils/date';
 import { Article, HomeDocument, QuickLink } from '@/type';
 import { ClassNameValue } from 'tailwind-merge';
 import { ArticleCard } from './article-card';
+import Image from 'next/image';
 
 type ContentProps = {
   content?: string;
@@ -64,7 +65,7 @@ const Links = ({ data = [] }: LinksProps) => {
         return (
           <li key={index}>
             <a href={item.href} target='_blank'>
-              <img className='size-5' src={item.icon} />
+              <Image className='size-5' src={item.icon} alt='' />
             </a>
           </li>
         );

@@ -20,7 +20,7 @@ export const generateStaticParams = async () => {
 };
 
 // 渲染指定文章详情
-export default async ({ params }: ArticlePageProps) => {
+export default async function Article({ params }: ArticlePageProps) {
   // 当前动态路由参数
   const { id } = await params;
 
@@ -36,4 +36,4 @@ export default async ({ params }: ArticlePageProps) => {
       <Markdown content={article.content} showToc />
     </ArticleContainer>
   );
-};
+}

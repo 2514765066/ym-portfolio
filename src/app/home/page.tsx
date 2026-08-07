@@ -5,7 +5,7 @@ import { ContentArticle } from './content-article';
 import { getArticles, getHome } from '@/lib/content';
 
 // 渲染首页静态文章列表
-export default async () => {
+export default async function HomePage() {
   // 首页 Markdown 配置
   const home = await getHome();
 
@@ -31,4 +31,4 @@ export default async () => {
       <ContentArticle data={articleData} />
     </PageContainer>
   );
-};
+}

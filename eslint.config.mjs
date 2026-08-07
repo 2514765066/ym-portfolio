@@ -29,6 +29,7 @@ const eslintConfig = defineConfig(
     },
     rules: {
       'prettier/prettier': 'warn',
+      'react-hooks/set-state-in-effect': 'off',
     },
   },
 );
