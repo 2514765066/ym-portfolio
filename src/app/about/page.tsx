@@ -1,15 +1,13 @@
-import { Markdown } from '@/components/markdown';
 import { PageContainer } from '@/components/template';
-import { getAbout } from '@/lib/content';
+import AboutContent, { frontmatter } from '@/content/about.mdx';
 
 // 渲染关于我页面
 export default async function AboutHome() {
-  // 关于页的 Markdown 展示信息
-  const { data, content } = await getAbout();
-
   return (
-    <PageContainer {...data} className='max-w-3xl'>
-      <Markdown content={content} />
+    <PageContainer {...frontmatter} className='max-w-3xl'>
+      <section className='typeset typeset-docs max-w-full'>
+        <AboutContent />
+      </section>
     </PageContainer>
   );
 }

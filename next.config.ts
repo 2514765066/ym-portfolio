@@ -1,3 +1,4 @@
+import createMDX from '@next/mdx';
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
@@ -16,6 +17,23 @@ const nextConfig: NextConfig = {
   },
 
   typedRoutes: false,
+
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
 
-export default nextConfig;
+// 为 Next.js 增加 MDX 编译能力
+const withMdx = createMDX({
+  extension: /\.(md|mdx)$/,
+  options: {
+    // MDX 解析器的选项
+    remarkPlugins: [
+      'remark-frontmatter',
+      'remark-mdx-frontmatter',
+      'remark-gfm',
+      'remark-math',
+    ],
+    rehypePlugins: ['rehype-slug', 'rehype-katex', 'rehype-highlight'],
+  },
+});
+
+export default withMdx(nextConfig);

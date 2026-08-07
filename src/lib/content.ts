@@ -1,12 +1,7 @@
 import { readdir, readFile } from 'fs/promises';
 import { join, extname, basename } from 'path';
 import matter from 'gray-matter';
-import type {
-  Article,
-  ArticleDocument,
-  HomeDocument,
-  PageDocument,
-} from '@/type';
+import type { Article, ArticleDocument } from '@/type';
 
 // 内容根目录
 const contentDirectory = join(process.cwd(), 'src', 'content');
@@ -37,14 +32,6 @@ export const getContent = <T>(...args: string[]) => {
 
   return readMarkdown<T>(path);
 };
-
-// 读取首页内容文档
-export const getHome = () =>
-  getContent<HomeDocument>(contentDirectory, 'index');
-
-// 读取关于页内容文档
-export const getAbout = () =>
-  getContent<PageDocument>(contentDirectory, 'about');
 
 // 读取指定 Markdown 文章
 const readArticle = async (id: string) => {
