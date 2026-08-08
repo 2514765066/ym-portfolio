@@ -1,8 +1,10 @@
+import { ArticleNavigation } from './article-navigation';
 import { ArticleContainer } from '@/components/template';
 import { MarkdownContent } from '@/components/markdown';
 import { getArticlesFrontmatter } from '@/lib/content';
 import { ArticleFrontmatter } from '@/type';
 import { MDXContent } from 'mdx/types';
+import type { Metadata } from 'next';
 
 type ArticlePageProps = {
   params: Promise<{
@@ -29,18 +31,40 @@ const loadArticle = async (id: string) => {
   };
 };
 
+export const generateMetadata = async ({
+  params,
+}: ArticlePageProps): Promise<Metadata> => {
+  const { id } = await params;
+  const { frontmatter } = await loadArticle(id);
+
+  return {
+    title: frontmatter.title,
+  };
+};
+
 // 渲染指定文章详情
 const Article = async ({ params }: ArticlePageProps) => {
   // 当前动态路由参数
   const { id } = await params;
 
   const { frontmatter, default: Content } = await loadArticle(id);
+  const articles = await getArticlesFrontmatter();
+  const currentArticleIndex = articles.findIndex(
+    (article) => article.id === id,
+  );
+  const previousArticle = articles[currentArticleIndex - 1];
+  const nextArticle = articles[currentArticleIndex + 1];
 
   return (
     <ArticleContainer {...frontmatter}>
       <MarkdownContent showToc>
         <Content />
       </MarkdownContent>
+
+      <ArticleNavigation
+        previousArticle={previousArticle}
+        nextArticle={nextArticle}
+      />
     </ArticleContainer>
   );
 };
