@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev",
     "lint": "eslint",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write ."
@@ -50,6 +52,7 @@
     "prettier": "^3.9.6",
     "shadcn": "^4.16.1",
     "tailwindcss": "^4.3.3",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "wrangler": "4.120.0"
   }
 }
