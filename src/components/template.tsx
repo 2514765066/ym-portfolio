@@ -1,8 +1,7 @@
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { PropsWithChildren, ReactNode } from 'react';
-import { formatDate } from '@/utils/date';
-import { Article, HomeDocument, QuickLink } from '@/type';
+import { ArticleFrontmatter, HomeDocument, QuickLink } from '@/type';
 import { ClassNameValue } from 'tailwind-merge';
 import { ArticleCard } from './article-card';
 import Image from 'next/image';
@@ -143,16 +142,13 @@ export const PageContainer = ({
 };
 
 type PageContentProps = {
-  data: Article[];
+  data: ArticleFrontmatter[];
 };
 
 //页面内容
 export const PageContent = ({ data }: PageContentProps) => {
   return (
-    <section
-      className='grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8'
-      id='articles'
-    >
+    <section className='grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8'>
       {data.map((item) => (
         <ArticleCard key={item.id} data={item} />
       ))}
@@ -166,7 +162,7 @@ export const ArticleContainer = ({
   title,
   updateTime,
   children,
-}: PropsWithChildren<Article>) => {
+}: PropsWithChildren<ArticleFrontmatter>) => {
   return (
     <Container className='lg:max-w-xl xl:max-w-3xl'>
       <Header>
@@ -174,9 +170,7 @@ export const ArticleContainer = ({
 
         <Title content={title} />
 
-        <Description
-          content={updateTime ? ` 更新于: ${formatDate(updateTime)}` : ''}
-        />
+        <Description content={updateTime ? ` 更新于: ${updateTime}` : ''} />
       </Header>
 
       {children}

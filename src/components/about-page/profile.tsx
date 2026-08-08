@@ -1,12 +1,12 @@
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { ClassNameValue } from 'tailwind-merge';
-import { Separator } from '../ui/separator';
 
 type ProfileProps = {
   className: ClassNameValue;
 };
 
+// 展示个人头像与中英文名称
 export const Profile = ({ className }: ProfileProps) => {
   return (
     <section className={cn(className, 'flex items-center gap-3')}>

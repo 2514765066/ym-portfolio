@@ -2,12 +2,12 @@
 
 import { useMemo } from 'react';
 import { PageContent } from '@/components/template';
-import type { Article } from '@/type';
+import type { ArticleFrontmatter } from '@/type';
 import { useSnapshot } from 'valtio';
 import { categoryState } from '@/stores/category';
 
 type Props = {
-  data: Article[];
+  data: ArticleFrontmatter[];
 };
 
 // 管理文章分类筛选与列表展示

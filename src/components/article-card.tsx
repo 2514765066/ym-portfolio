@@ -1,4 +1,4 @@
-import { Article } from '@/type';
+import { ArticleFrontmatter } from '@/type';
 import { capitalize } from '@/utils/str';
 import { ArrowRight, ImageIcon } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 type CardtProps = {
-  data: Article;
+  data: ArticleFrontmatter;
 };
 
 // 页面内容卡片
@@ -49,6 +49,7 @@ export const ArticleCard = ({ data }: CardtProps) => {
               fill
               src={data.img}
               alt=''
+              loading='lazy'
             />
           ) : (
             <ImageIcon className='size-10 text-muted-foreground' />
@@ -73,9 +74,11 @@ export const ArticleCard = ({ data }: CardtProps) => {
             />
           </div>
 
-          <span className='text-sm text-muted-foreground truncate'>
-            {data.description}
-          </span>
+          {data.description && (
+            <span className='text-sm text-muted-foreground truncate'>
+              {data.description}
+            </span>
+          )}
         </footer>
       </Link>
     </motion.div>

@@ -37,17 +37,11 @@ export type PageDocument = {
 };
 
 // 文章配置
-export type Article = {
+export type ArticleFrontmatter = {
   id: string;
   tag: string;
   title: string;
-  description: string;
-  updateTime: number;
-  img: string;
-};
-
-// 文章 Markdown 文档
-export type ArticleDocument = {
-  data: Article;
-  content: string;
+  description?: string;
+  updateTime?: string;
+  img?: string;
 };

@@ -1,20 +1,9 @@
 'use client';
 
-import { MarkdownToc, TocItem } from './markdown-toc';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { useEffect, useRef, useState } from 'react';
-import rehypeSlug from 'rehype-slug';
-import remarkMath from 'remark-math';
-import rehypeHighlight from 'rehype-highlight';
-import rehypeKatex from 'rehype-katex';
-import rehypeRaw from 'rehype-raw';
+import { MarkdownToc } from './markdown-toc';
+import type { TocItem } from './markdown-toc';
+import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 import 'katex/dist/katex.min.css';
-
-type MarkdownProps = {
-  content: string;
-  showToc?: boolean;
-};
 
 // 将标题元素转换为目录项
 const createTocItem = (heading: HTMLHeadingElement): TocItem | null => {
@@ -34,9 +23,16 @@ const createTocItem = (heading: HTMLHeadingElement): TocItem | null => {
   return { title, depth, id };
 };
 
-// 渲染页面或文章的 Markdown 正文
-export const Markdown = ({ content, showToc = false }: MarkdownProps) => {
-  // Markdown 正文容器
+type MarkdownContentProps = {
+  showToc?: boolean;
+};
+
+// 为已编译的 Markdown / MDX 正文生成阅读目录
+export const MarkdownContent = ({
+  children,
+  showToc = false,
+}: PropsWithChildren<MarkdownContentProps>) => {
+  // MDX 正文容器
   const mdRef = useRef<HTMLElement>(null);
 
   // 正文标题生成的一维目录
@@ -61,19 +57,14 @@ export const Markdown = ({ content, showToc = false }: MarkdownProps) => {
       });
 
     setToc(tocItems);
-  }, [content, showToc]);
+  }, [children, showToc]);
 
   return (
     <section className='flex flex-col'>
       {showToc && <MarkdownToc data={toc} />}
 
       <section ref={mdRef} className='typeset typeset-docs max-w-full'>
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm, remarkMath]}
-          rehypePlugins={[rehypeRaw, rehypeSlug, rehypeKatex, rehypeHighlight]}
-        >
-          {content}
-        </ReactMarkdown>
+        {children}
       </section>
     </section>
   );

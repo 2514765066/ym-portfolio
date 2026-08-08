@@ -1,7 +1,6 @@
 import { ArticleContainer } from '@/components/template';
-import { Markdown } from '@/components/markdown';
-import { getArticleById, getArticles } from '@/lib/content';
-import { notFound } from 'next/navigation';
+import { MarkdownContent } from '@/components/markdown';
+import { getArticlesFrontmatter } from '@/lib/content';
 
 type ArticlePageProps = {
   params: Promise<{
@@ -12,28 +11,31 @@ type ArticlePageProps = {
 // 预生成全部本地文章详情页面
 export const generateStaticParams = async () => {
   // 全部静态文章
-  const articles = await getArticles();
+  const articles = await getArticlesFrontmatter();
 
   return articles.map((article) => {
-    return { id: article.data.id };
+    return { id: article.id };
   });
 };
 
+const loadArticle = async (id: string) => {
+  return await import(`../../../content/articles/${id}.mdx`);
+};
+
 // 渲染指定文章详情
-export default async function Article({ params }: ArticlePageProps) {
+const Article = async ({ params }: ArticlePageProps) => {
   // 当前动态路由参数
   const { id } = await params;
 
-  // 当前文章的静态内容
-  const article = await getArticleById(id);
-
-  if (!article) {
-    notFound();
-  }
+  const { frontmatter, default: Content } = await loadArticle(id);
 
   return (
-    <ArticleContainer {...article.data}>
-      <Markdown content={article.content} showToc />
+    <ArticleContainer {...frontmatter}>
+      <MarkdownContent showToc>
+        <Content />
+      </MarkdownContent>
     </ArticleContainer>
   );
-}
+};
+
+export default Article;
