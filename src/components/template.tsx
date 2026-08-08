@@ -99,7 +99,10 @@ const Container = ({
 }: PropsWithChildren<ContainerProps>) => {
   return (
     <section
-      className={cn(className, 'container mx-auto py-24 flex flex-col gap-8')}
+      className={cn(
+        className,
+        'container mx-auto py-24 max-sm:px-4 flex flex-col gap-8',
+      )}
     >
       {children}
     </section>
