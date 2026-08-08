@@ -13,9 +13,10 @@ const readArticleFrontmatter = async (filepath: string) => {
 
   const { data } = matter(source);
 
-  data.id = basename(filepath, articleExtension);
-
-  return data as ArticleFrontmatter;
+  return {
+    ...data,
+    id: basename(filepath, articleExtension),
+  } as ArticleFrontmatter;
 };
 
 //获取所有文章的frontmatter
