@@ -77,7 +77,7 @@ export const MarkdownToc = ({ data }: MarkdownTocProps) => {
     <section className='w-56 fixed top-20 right-4 flex flex-col gap-4 max-lg:hidden'>
       <p>On This Page</p>
 
-      <ul className='flex flex-col gap-2'>
+      <ul className='max-h-[80vh] overflow-y-auto scrollbar-none flex flex-col gap-2'>
         {data.map((item) => (
           <MarkdownTocItem
             key={item.id}
