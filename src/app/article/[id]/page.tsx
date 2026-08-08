@@ -8,6 +8,8 @@ type ArticlePageProps = {
   }>;
 };
 
+export const dynamicParams = false;
+
 // 预生成全部本地文章详情页面
 export const generateStaticParams = async () => {
   // 全部静态文章
