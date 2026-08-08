@@ -1,4 +1,5 @@
 import { ArticleFrontmatter } from '@/type';
+import { padIndex } from '@/utils/pad';
 import { capitalize } from '@/utils/str';
 import { ArrowRight, ImageIcon } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -39,7 +40,9 @@ export const ArticleCard = ({ data }: CardtProps) => {
             - {capitalize(data.tag)} -
           </span>
 
-          <span className='text-xs tracking-widest'>(010)</span>
+          <span className='text-xs tracking-widest'>
+            ({padIndex(data.index)})
+          </span>
         </header>
 
         <main className='aspect-3/2 relative flex-center border rounded-md overflow-hidden bg-muted'>

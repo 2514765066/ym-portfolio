@@ -39,6 +39,8 @@ export type PageDocument = {
 // 文章配置
 export type ArticleFrontmatter = {
   id: string;
+  index: number;
+
   tag: string;
   title: string;
   description?: string;

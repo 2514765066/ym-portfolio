@@ -10,6 +10,8 @@ const HomePage = async () => {
   // 首页卡片使用的文章 Front matter
   const data = await getArticlesFrontmatter();
 
+  data.forEach((a, i) => (a.index = data.length - i));
+
   return (
     <PageContainer
       {...frontmatter}
