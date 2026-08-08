@@ -1,0 +1,23 @@
+---
+tag: lib
+title: ym-release
+description: 自动创建 GitHub 与 Gitee Release 并上传附件的 TypeScript 工具库
+img: /article/ym-release/github-repository.png
+updateTime: 2026-08-08
+---
+
+ym-release 是一个轻量级 TypeScript 发布工具库，用于自动化 GitHub 和 Gitee 的版本发布流程。它可以帮助项目快速创建 Release，并将构建产物或其他资源作为附件上传。
+
+## 核心功能
+
+库同时兼容 GitHub 与 Gitee，支持一次上传多个发布附件。发布时可传入版本号、标签、标题、分支或提交以及 Release 正文，未指定时可使用默认的标签、标题和主分支配置。
+
+ym-release 以 TypeScript 编写，提供完善的类型支持，且不依赖第三方发布 SDK；在 Node.js 18 及以上环境中直接使用原生的 `fetch`、`FormData` 与 `File` 接口完成请求。它适合接入构建脚本或持续集成流程，减少手动创建 Release 的重复操作。
+
+## 仓库地址
+
+仓库地址：[https://github.com/2514765066/ym-release](https://github.com/2514765066/ym-release)
+
+## 仓库预览
+
+![ym-release GitHub 仓库预览](/article/ym-release/github-repository.png)

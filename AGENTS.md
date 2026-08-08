@@ -36,3 +36,11 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+# 写入文章的规范
+
+- 文章写入位置是src/content/article/文件夹中，文件名不能有空格以.mdx结尾
+- 写文章的时候开头要加上frontmatter，参数类型可以参考README.md，除了id和index都加上
+- 文章的frontmatter中的tag如果内容是一个应用就写application区分移动端和pc端，如果是一个网站就写web，文章你就写article，库就写lib，其他的也要语义化，如果home.mdx中没有这个分类你要加上
+- 文章内容开始是一个简单的介绍，核心功能或者用它做什么，仓库地址，和内容截图
+- 文章的截图内容都放在public/article中，每一个文章新建一个跟文章的文件名一样的目录，然后里面放截图，图片名称语义化

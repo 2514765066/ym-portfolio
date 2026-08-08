@@ -1,0 +1,23 @@
+---
+tag: lib
+title: plugin-electron-ipc
+description: 为 Electron Vite 提供类型安全 IPC 的 Vite 插件
+img: /article/plugin-electron-ipc/github-repository.png
+updateTime: 2026-08-08
+---
+
+plugin-electron-ipc 是一个面向 Electron Vite 的工具库。它能自动注册主进程 IPC 处理器、生成 preload 调用对象，并将主进程函数签名同步为渲染进程的 TypeScript 类型，让 Electron 进程通信更省心、更安全。
+
+## 核心功能
+
+在 Electron Vite 的 `main` 与 `preload` 构建中分别配置插件后，它会扫描指定入口文件中导出的 IPC 处理函数，并自动完成频道注册。渲染进程可以通过 preload 暴露的 `ipc` 对象直接调用这些方法，返回值和参数都会保留 TypeScript 类型提示。
+
+插件支持具名导出的箭头函数、函数表达式、函数声明及具名重导出；会自动生成渲染进程可引用的类型声明文件，并仅在内容发生变化时更新。它还提供统一的 `ipc.on` 事件订阅方法，方便接收主进程推送的事件。
+
+## 仓库地址
+
+仓库地址：[https://github.com/2514765066/plugin-electron-ipc](https://github.com/2514765066/plugin-electron-ipc)
+
+## 仓库预览
+
+![plugin-electron-ipc GitHub 仓库预览](/article/plugin-electron-ipc/github-repository.png)

@@ -1,0 +1,23 @@
+---
+tag: lib
+title: ym-fullscreen-detector
+description: 检测 Windows 当前前台窗口是否真正处于全屏状态的 Node-API 库
+img: /article/ym-fullscreen-detector/github-repository.png
+updateTime: 2026-08-08
+---
+
+ym-fullscreen-detector 是一个用于检测 Windows 当前前台窗口是否真正覆盖所在显示器的 Node-API 库。它适用于需要判断用户是否正在全屏使用应用的 Node.js 或 Electron 项目。
+
+## 核心功能
+
+库通过 Win32 与 DWM 获取前台窗口的可见边界，能够识别无边框全屏窗口，同时排除 Windows 桌面和带标准边框的普通最大化窗口。调用 `isForegroundWindowFullscreen()` 即可获得布尔结果；在不支持的平台、桌面窗口或检测异常时，函数会安全地返回 `false`。
+
+项目使用 TypeScript 提供 npm 入口与类型声明，底层基于 Node-API，并提供 Windows x64 预编译文件。它支持 Node.js 18 及以上版本，也可直接用于 Electron。
+
+## 仓库地址
+
+仓库地址：[https://github.com/2514765066/ym-fullscreen-detector](https://github.com/2514765066/ym-fullscreen-detector)
+
+## 仓库预览
+
+![ym-fullscreen-detector GitHub 仓库预览](/article/ym-fullscreen-detector/github-repository.png)
