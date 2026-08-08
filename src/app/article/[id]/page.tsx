@@ -1,6 +1,8 @@
 import { ArticleContainer } from '@/components/template';
 import { MarkdownContent } from '@/components/markdown';
 import { getArticlesFrontmatter } from '@/lib/content';
+import { ArticleFrontmatter } from '@/type';
+import { MDXContent } from 'mdx/types';
 
 type ArticlePageProps = {
   params: Promise<{
@@ -21,7 +23,10 @@ export const generateStaticParams = async () => {
 };
 
 const loadArticle = async (id: string) => {
-  return await import(`../../../content/articles/${id}.mdx`);
+  return (await import(`../../../content/articles/${id}.mdx`)) as {
+    frontmatter: ArticleFrontmatter;
+    default: MDXContent;
+  };
 };
 
 // 渲染指定文章详情
