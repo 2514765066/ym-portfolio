@@ -52,7 +52,7 @@ export const ArticleCard = ({ data }: CardtProps) => {
               fill
               src={data.img}
               alt=''
-              loading='lazy'
+              loading='eager'
             />
           ) : (
             <ImageIcon className='size-10 text-muted-foreground' />

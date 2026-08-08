@@ -2,7 +2,8 @@ import { interFont, geistFont, geistMonoFont, hwmcFont } from '@/font/index';
 import { cn } from '@/lib/utils';
 import '@/style/globals.css';
 import { Metadata } from 'next';
-import { NavBar } from './nav-bar';
+import { NavBar } from '@/components/nav-bar';
+import { ThemeProvider } from 'next-themes';
 
 export const metadata: Metadata = {
   title: '张铭洋的个人作品集',
@@ -17,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='zh-CN' className='scroll-smooth'>
+    <html lang='zh-CN' className='scroll-smooth' suppressHydrationWarning>
       <body
         className={cn(
           interFont.className,
@@ -26,9 +27,11 @@ export default function RootLayout({
           hwmcFont.variable,
         )}
       >
-        <NavBar />
+        <ThemeProvider attribute='class'>
+          <NavBar />
 
-        {children}
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
