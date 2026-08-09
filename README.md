@@ -1,6 +1,12 @@
-# YM Portfolio
+# Ym Portfolio
 
 一个基于 Next.js、MDX 和 Tailwind CSS 的个人作品集模板。克隆后只需编辑 `src/content` 中的内容文件，即可快速生成自己的主页、关于页和文章列表，无需改动页面逻辑。
+
+## 在线预览
+
+[https://zhangmingyang.dpdns.org/](https://zhangmingyang.dpdns.org/)
+
+![YM Portfolio 预览图](docs/assets/home.png)
 
 ## 开始使用
 
