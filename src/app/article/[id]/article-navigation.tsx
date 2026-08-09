@@ -23,7 +23,7 @@ export const ArticleNavigation = ({
   }
 
   return (
-    <nav className='flex gap-4'>
+    <nav className='flex gap-4 max-sm:flex-col'>
       {previousArticle && (
         <Item
           className='flex-1 px-4.5 py-4 hover:-translate-y-1 transition-all! duration-300'
