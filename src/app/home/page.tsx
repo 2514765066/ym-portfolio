@@ -4,6 +4,21 @@ import { HeaderCategory } from './header-category';
 import { ContentArticle } from './content-article';
 import { getArticlesFrontmatter } from '@/lib/content';
 import { frontmatter } from '@/content/home.mdx';
+import type { Metadata } from 'next';
+
+// 首页搜索与分享元信息
+export const metadata: Metadata = {
+  title: frontmatter.title,
+  description: frontmatter.description,
+  alternates: {
+    canonical: '/home/',
+  },
+  openGraph: {
+    url: '/home/',
+    title: frontmatter.title,
+    description: frontmatter.description,
+  },
+};
 
 // 渲染首页静态文章列表
 const HomePage = async () => {

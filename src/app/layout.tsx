@@ -4,9 +4,36 @@ import '@/style/globals.css';
 import { Metadata } from 'next';
 import { NavBar } from '@/components/nav-bar';
 import { ThemeProvider } from 'next-themes';
+import { authorName, siteDescription, siteName, siteUrl } from '@/map/site';
 
+// 网站默认元信息
 export const metadata: Metadata = {
-  title: '张铭洋的个人作品集',
+  metadataBase: siteUrl,
+  title: {
+    default: siteName,
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  applicationName: siteName,
+  authors: [
+    {
+      name: authorName,
+      url: siteUrl,
+    },
+  ],
+  creator: authorName,
+  publisher: authorName,
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'zh_CN',
+    siteName,
+    title: siteName,
+    description: siteDescription,
+  },
   icons: {
     icon: '/icon.svg',
   },

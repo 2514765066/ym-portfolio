@@ -5,6 +5,7 @@ import { getArticlesFrontmatter } from '@/lib/content';
 import { ArticleFrontmatter } from '@/type';
 import { MDXContent } from 'mdx/types';
 import type { Metadata } from 'next';
+import { siteDescription } from '@/map/site';
 
 type ArticlePageProps = {
   params: Promise<{
@@ -36,9 +37,34 @@ export const generateMetadata = async ({
 }: ArticlePageProps): Promise<Metadata> => {
   const { id } = await params;
   const { frontmatter } = await loadArticle(id);
+  // 文章搜索摘要，缺失时使用网站默认摘要
+  const description = frontmatter.description ?? siteDescription;
+  // 文章规范地址
+  const articleUrl = `/article/${encodeURIComponent(id)}/`;
+  // 文章分享封面
+  const images = frontmatter.img
+    ? [
+        {
+          url: frontmatter.img,
+          alt: frontmatter.title,
+        },
+      ]
+    : undefined;
 
   return {
     title: frontmatter.title,
+    description,
+    alternates: {
+      canonical: articleUrl,
+    },
+    openGraph: {
+      type: 'article',
+      url: articleUrl,
+      title: frontmatter.title,
+      description,
+      modifiedTime: frontmatter.updateTime,
+      images,
+    },
   };
 };
 
